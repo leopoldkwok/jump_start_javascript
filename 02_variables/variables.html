@@ -1,0 +1,46 @@
+var task = "Write the first chapter.";
+
+// Using the var keyword, you can declare one or more variables and optionally ini- tialize them with a value. So, for example:
+
+var task = "Write the first chapter.",
+	complete = true;
+
+We’ve declared two variables (separated by a comma), and assigned a string to the first and a Boolean value to the second (there's more on variable types, such as string and Boolean, shortly). Note how we’re only using one declaration statement to de- clare and initialize both variables. You can also use multiple declaration state- ments―one for each variable declaration.
+
+One last point about variable declaration and initialization: It’s best to keep the two separate. It's common to run into trouble when using a debugger to walk through code. When variables are declared and initialized in the same statement, the debugger skips over the whole line in one step. If there’s any trouble with one of the initializ- ations, you won’t be able to examine each assignment individually. Instead, it’s better to declare all your variables together and initialize them all separately, like so:
+
+// declaration
+var task, complete;
+
+// initialisation
+task = "Write the first chapter.";
+complete = true;
+
+
+Having data is great, but doing something with it is better. You may have a couple of strings that you want to concatenate, or a few numbers you’d like to do some math with. Well, it’s fairly straightforward to perform these tasks using JavaScript. Concatenating strings is as easy as using the + symbol:
+
+var fname, lname, fullname;
+
+fname = "John";
+lname = "Doe";
+fullname = fname + " " + lname; // fullName is "John Doe"
+
+Math operations are carried out as you’d expect, using the addition (+), subtraction (-), multiplication (*), division (/), and modulus (%) operators:
+
+var widgets , gizmos, inventory;
+
+widgets = 1043;
+gizmos = 2279;
+inventory = widgets + gizmos; // inventory is 3322
+
+similarly: 
+
+var provincial, federal, subtotal, total;
+
+provincial = 0.095;
+federal = 0.05;
+subtotal = 10;
+total = subtotal + (subtotal * provincial) + (subtotal * federal); // total is 11.45
+
+Finally, you can use the remainder (%) operator to end up with just the remainder of a division returned to you. So, for example, 10 % 3 will return 1.
+
