@@ -1,0 +1,173 @@
+You can create an array in a couple of ways:
+
+var myArray = new Array();
+
+or:
+
+var myArray = [];
+
+Using the array literal, you can easily create a new array containing values such as the following:
+
+var myArray = [4,8,15,16,23,42];
+
+An array isn’t limited to numbers, though. You can also create an array with strings in it:
+
+var fruit = ["apple", "orange", "pear", "grapes"];
+
+Furthermore, you can mix the types of data stored in the array:
+
+var stuff = [1, "apple", undefined, 42, "tanks", null, []];
+
+Adding to an Array
+
+var myArray = [];
+
+myArray[0] = "Hello";
+myArray[1] = "World";
+
+It’s also possible to use named indices:
+
+var myArray = [];
+
+myArray["fruit"] = "apple";
+myArray["vehicle"] = "tank";
+
+This creates an associative array where items are stored by a named index rather than a numbered index. However, we'd discourage the use of associative arrays. The preferred way to store data with named indices is by using objects, which we’ll discuss in the next chapter.
+
+there are a couple of ways to add data to an array. The second approach is to use the push method. This is useful in situations where you wish to add items to the end of an array, but want to avoid calculating the index required to access the final position. Instead, you can do this:
+
+myArray.push("hello");
+
+By using push, you simply add a new item to the existing array. If it’s an empty array, the data is written to position 0. If there are ten items in the array, the data is written to position 10 (remember, indices are zero-based).
+
+
+Reading from an array is fairly straightforward. All you need to do is point to the item you want by its index number and the array will return it to you, like so:
+
+var myValue,
+	myArray = ["Hello", "World", "I", "am", "an", "array"];
+
+	myValue = myArray[4]; // returns "an"
+
+Nested Arrays
+
+Sometimes, you’ll need to store an array within an array. Sometimes, you’ll require even more nesting. A quick warning: although it’s possible to nest a number of arrays, we advise against it, as working with many array indices can be confusing.
+Let’s start with two simple arrays, which we’ll call yusuf and dreamers. We’ll fill dreamers with some values:
+
+var yusuf, 
+	dreamers;
+
+yusuf = [];
+dreamers = ["cobb", "arthur", "ariadne", "saito", "fischer"];
+
+Now, reading any of the values from the dreamers array is as simple as passing in an index, which means placing the index value between a set of square brackets placed next to the array name. So, if we wanted "cobb", we’d pass in an index of 0:
+
+var dreamer = dreamers[0]; // returns "cobb"
+
+But what if dreamers wasn’t a named array but merely defined inline:
+
+var yusuf;
+
+yusuf = [["cobb", "arthur", "ariadne", "saito", "fischer"]];
+
+How would we now get to "cobb"? By using: yusuf[0][0]. In the first square brackets, we'd define the index of the first array we want to read from; in the second set, we'd define the second index. 
+
+So, reading "arthur" would be yusuf[0][1], "ariadne" would be yusuf[0][2], and so on.
+
+var reality = ["yusuf", 
+			  	["arthur", 
+			  		["eames",
+			  			["cobb", 
+			  				"ariadne",
+			  					"saito",
+			  						"fischer"]
+			  			]
+			  		]
+			  	];
+
+Here, we have an outer array called reality. It contains the string "yusuf" and a nested array. The nested array contains the string "arthur" and another nested array, and so on. Reading values from this nested set would be as follows:
+
+reality[0];
+reality[1][0];
+reality[1][1][0];
+reality[1][1][1][0]; // returns "cobb"
+reality[1][1][1][1]; // returns "ariadne"
+reality[1][1][1][2]; // returns "saito"
+reality[1][1][1][3]; // returns "fischer"
+
+pop will remove the last element from the array and return it to you:
+
+var tasks = [
+  "Pay phone bill",
+  "Write best-selling novel",
+  "Walk the dog"
+];
+tasks.pop(); // returns "Walk the dog"
+
+
+push will add an item to the end of the array and return the array’s new length:
+var tasks = [
+  "Pay phone bill",
+  "Write best-selling novel",
+  "Walk the dog"
+];
+tasks.push("Feed the cat"); // returns 4
+// tasks is now:
+// ["Pay phone bill",
+//   "Write best-selling novel",
+//   "Walk the dog",
+//   "Feed the cat"]
+
+reverse will reverse the order of the items in the array:
+Arrays 31
+var tasks = [
+  "Pay phone bill",
+  "Write best-selling novel",
+  "Walk the dog"
+];
+tasks.reverse();
+// tasks is now:
+// ["Walk the dog",
+//   "Write best-selling novel",
+//   "Pay phone bill"]
+
+shift removes the first item in the array and returns it:
+var tasks = [
+  "Pay phone bill",
+  "Write best-selling novel",
+  "Walk the dog"
+];
+tasks.shift(); // returns "Pay phone bill"
+// tasks is now:
+// ["Write best-selling novel",
+//   "Walk the dog"]
+
+var tasks = [
+  "Pay phone bill",
+  "Write best-selling novel",
+  "Walk the dog"
+];
+tasks.sort(); // sorts array in ascending order
+// tasks is now:
+// ["Pay phone bill",
+//   "Walk the dog",
+//   "Write best-selling novel"]
+
+splice lets you perform selective surgery on an array, allowing you to simultan- eously add and remove items from an array with just one command:
+
+var tasks = [
+  "Pay phone bill",
+  "Write best-selling novel",
+  "Walk the dog"
+];
+tasks.splice(1, 1, "World domination");
+// tasks is now:
+// ["Pay phone bill",
+//   "World domination",
+//   "Walk the dog"]
+
+We just told splice to start at the index of 1, which was the position of "Write best-selling novel",removeoneitem(removing"Write best-selling novel"), and then insert the item "World domination" in that position. We could do the same with multiple items:
+
+
+
+
+
