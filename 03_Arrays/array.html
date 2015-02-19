@@ -167,6 +167,103 @@ tasks.splice(1, 1, "World domination");
 
 We just told splice to start at the index of 1, which was the position of "Write best-selling novel",removeoneitem(removing"Write best-selling novel"), and then insert the item "World domination" in that position. We could do the same with multiple items:
 
+  var tasks = [
+            "Pay phone bill",
+            "Write best-selling novel",
+            "Walk the dog"
+];
+tasks.splice(1, 1, "World domination", "Rotate tires", ➥"Hire hit squad");
+          // tasks is now:
+          // ["Pay phone bill",
+          // "World domination",
+          // "Rotate tires",
+          // "Hire hit squad",
+          // "Walk the dog"]
+
+Therearetwopointstonotehere.We’venowhavethreeitemswhere"Write best- selling novel" used to be, and the inserted items have shifted "Walk the dog" without overwriting it.
+Of course, there’s no need to add any items when splicing. We could just remove items (and have them returned to us):
+
+     var tasks, task;
+          tasks = [
+            "Pay phone bill",
+            "Write best-selling novel",
+            "Walk the dog"
+];
+task = tasks.splice(1, 1); ➥// returns "Write best-selling novel
+          alert("REMINDER! Don’t forget to: " + task);
+Here, all we’re doing is slicing out "Write best-selling novel" and storing it in the variable named task. We then trigger an alert with the message: "REMINDER! Don’t forget to: Write best-selling novel"
+
+unshift adds one or more items to the beginning of the array and returns the array’s new length:
+unshift.html (excerpt)
+var tasks, len;
+tasks = [
+  "Pay phone bill",
+  "Write best-selling novel",
+  "Walk the dog"
+];
+len = tasks.unshift("Defeat nemesis", "Pick up dry
+www.it-ebooks.info
+Arrays 35
+➥cleaning");
+alert("You now have " + len + " tasks to complete: "
+➥+ tasks.join(", "));
+
+With concat, you can combine two or more arrays into one. The original arrays being concatenated remain untouched. The operation returns a newly formed array with the concatenated values in it:
+￼
+var arr1, arr2, arr3, arr4;
+arr1 = ["Pay phone bill"];
+arr2 = ["Write best-selling novel"];
+arr3 = ["Walk the dog"];
+arr4 = arr1.concat(arr2, arr3);
+www.it-ebooks.info
+36 Jump Start JavaScript
+// arr4 contains:
+// ["Pay phone bill",
+//   "Write best-selling novel",
+//   "walk the dog"]
+Here, the concat method has filled arr4 with the contents of the first three arrays. The other three arrays remain unchanged, each still containing one item.
+
+
+oin takes the values in an array and joins them into a string. You can pass it a parameter to specify what character(s) to put in between each item as it performs the join operation. If you don’t, it will just output a comma-separated list of items. Note that it doesn’t matter what type each of the array items are―join will perform a toString conversion on each item and use the result (we’ll look at toString in just a moment),
+
+var nums;
+          nums = [4, 8, 15, 16, 23, 42];
+alert("The winning lottery numbers are: " ➥+ nums.join(", "));
+
+slice will copy a part of an array and return it. Rather than modify the original array, it just makes a shallow copy. You tell it where to start and, optionally, where to end copying. So arr.slice(2) will return a copy of arr starting at index 2 and going all the way to the end of the array. Conversely, arr.slice(-2) will start at the end and give you the last two items. arr.slice(2, 4) will make a copy of arr from index 2 to index 4.
+
+var tasks, todo, cleanup, noCleaning;
+          tasks = [
+                    "Fly a kite",
+                    "Save the world",
+                    [
+                      "Clean bathroom",
+                      "Clean garage",
+                      "Clean up act"
+] ];
+          todo = tasks.slice(0); // makes a copy of tasks
+          cleanup = tasks.slice(-1); // copies only the nested array
+          noCleaning = tasks.slice(0, 2);
+➥// copies only the first two items
+
+The first point to note is that the third item in the tasks list is an array. We’ve already mentioned that slice makes a shallow copy of the array. This is an example of needing to be careful when making a sliced copy, because the child array will only be copied by reference. In other words, the copy of the child array will be pointing to the original, so if the original array changes, the copy will change too.
+
+toString returns a string representing the array and its items:
+
+var arr = ["These", "words", "are", ➥ "separated", "by", "commas"];
+arr.toString(); //
+➥returns "These,words,are,separated,by,commas"
+
+When array items are exclusively strings, as in the previous example, they’re simply concatenated in a comma-separated list and returned. Numbers are first converted to strings before the concatenation:
+
+var arr = ["These", 8, "words", "and", "numbers","are", "separated", "by", "commas"];
+
+arr.toString(); // returns ➥"These,8,words,and,numbers,are,separated,by,commas"
+
+
+
+
+
 
 
 
