@@ -262,6 +262,55 @@ arr.toString(); // returns ➥"These,8,words,and,numbers,are,separated,by,commas
 
 When array items are exclusively strings, as in the previous example, they’re simply concatenated in a comma-separated list and returned. Numbers are first converted to strings before the concatenation:
 
+var arr = ["These", 8 , "words", "and", "numbers", "are", "separated", "by", "commas"];
+
+arr.toString(); // returns ➥"These,8,words,and,numbers,are,separated,by,commas"
+
+In the case of arrays and objects (which we’ll cover later), we see a different behavior:
+
+var arr = ["a","b","c", 100, 200, 300, [1,2,3], {"foo":"bar"}];
+
+arr.toString(); // returns "a,b,c,100,200,300,1,2,3, ➥[object Object]"
+
+
+Note how the toString function flattens out the nested array containing the values 1,2,3, but only outputs [object Object] for the object literal
+
+indexOf will find the first instance of an item in an array and return its index to you. It does this using strict equality, just like when you use === instead of ==. Here's an example:
+
+array.indexOf(searchElement, [fromIndex]);
+
+The searchElement value is what you’re looking for. If you know that your value occurs after a certain point, you can optionally pass an index from which to begin the search so that you can avoid looking through the whole array, as shown below:
+
+var alphabet;
+
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i",  "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",  "w", "x", "y", "z"];
+
+alert("The letter 'm' is at index: " + alphabet.indexOf("m"));
+
+You might pass in an index at which to start the search, like alphabet.indexOf("m", 10). In this case, there will be little difference as the number of items in the array is so small. But in very large arrays, it could have an impact on performance because you’ll have much fewer items to search through.
+
+lastIndexOf works exactly like indexOf, but begins its search from the end of the array rather than the beginning. Thus, it will find the last occurrence of the searchElement:
+
+array.lastIndexOf(searchElement, [fromIndex]);
+
+Iteration Methods forEach
+
+Traditionally, when you wanted to work with all the items in an array, you’d loop over it. Though we’ll be covering loops later, it’s important to show you how it used to be done so that you understand why the forEach method is handy.
+
+The following is a program that uses the traditional method of looping over an array. The array contains a set of numbers, and on each pass, the instructions in the loop
+www.it-ebooks.info
+add the current number to the total. The program ends with an alert stating the total amount, which is 108:
+
+
+
+
+
+
+
+
+
+
+
 
 
 
