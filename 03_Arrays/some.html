@@ -1,0 +1,12 @@
+You can use some to check if one or more of the items in an array conform to a test. some works just like every, but will return true as long as one array item returns true:
+
+var arr, isValid;
+
+arr = [1,2,3,4,5];
+isValid = arr.some(function(num) {
+	return(num < 2);
+}); //isValid is true
+
+In this example, even though just the one number in the array is less than 2, isValid is still true.
+
+In this example, even though just the one number in the array is less than 2, isValid is still true.

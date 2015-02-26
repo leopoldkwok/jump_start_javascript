@@ -1,0 +1,9 @@
+At times it’s necessary to perform a mathematical operation on the array and reduce it to a single value; for instance, if you want the sum of the values in an array. This is where reduce (and reduceRight) come into play. reduce loops over an array and passes in a previous and current value. It also passes in the current index and a reference to the array itself, should you need them in your calculations. For this example, however, we’ll be using the previous and current arguments only:
+
+var arr, total;
+
+arr = [1,2,3,4,5];
+total = arr.reduce(function(previous, current) {
+	return previous + current;
+
+}); // total is 15;

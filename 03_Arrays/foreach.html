@@ -1,14 +1,20 @@
+The following is a program that uses the traditional method of looping over an array. The array contains a set of numbers, and on each pass, the instructions in the loop
+www.it-ebooks.info
+add the current number to the total. The program ends with an alert stating the total amount, which is 108:
+
+
 var arr, 
 	i, 
 	num, 
 	total;
 
 arr = [4,8,15,16,23,42];
+
 total = 0;
 
-for (i = 0, i < arr.length; i = i + 1) {
-	num = arr[i];
-	total = total + num;
+for (i = 0; i < arr.length; i = i + 1) {
+  num = arr[i];
+  total = total + num;
 }
 
 alert("The total is: " + total);

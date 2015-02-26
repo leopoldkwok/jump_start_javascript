@@ -1,0 +1,18 @@
+Sometimes, you need to validate that the data in an array conforms to a set of criteria. You could, as in the previous example, run a manual test using either a traditional for loop or the forEach method. Or you could just use the every method that runs a callback function against each item in the array. It will return true if they all conform, or false if one or more fails to:
+
+var arr, isValid;
+
+arr = [1,2,3,4,5];
+isValid = arr.every(function(num) {
+	return(num<10);
+}); //isValid is true
+
+In this example, we’re using the every method to check that every item in our array is less than 10. The every method loops over the array, and for each item it runs the function we’ve included within its parentheses. The current array item is passed in as num, and our expression (return (num < 10)) checks to see if the number is less than 10, returning true or false. every monitors the response from our code and if we ever return false, it kicks out of the loop and returns false. We capture its response in the variable isValid. In the case above, the every method will return true. If we change our expression to check if numbers are greater than 3, then is- Valid will be false:
+
+var arr, isValid;
+
+ar=[1,2,3,4,5];
+isValid = arr.every(function(num) {
+	return(num < 3);
+}); // isValid is false
+

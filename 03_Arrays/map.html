@@ -1,0 +1,8 @@
+The map method is nearly identical to forEach. The only difference is that map returns an array containing the values returned by the callback function. The following example uses map to compute the square of each item in arr. The results are then returned and stored in squared:
+
+var arr = [1,2,3,4,5];
+var squared;
+
+squared = arr.map(function(num) {
+	return (num * num);
+}); //square is [1,4,9,16,25]

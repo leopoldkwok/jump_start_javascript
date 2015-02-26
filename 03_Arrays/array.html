@@ -293,13 +293,24 @@ lastIndexOf works exactly like indexOf, but begins its search from the end of th
 
 array.lastIndexOf(searchElement, [fromIndex]);
 
-Iteration Methods forEach
+Though there are several ways to create a loop, the for loop seen in this example isthemostcommon.Itconsistsofthreeparts:theinitialization(i = 0),thecondition (i < arr.length), and the final expression (i = i + 1). The loop starts with the variable i set to zero. If the value of i is less than the length of the array, which it is, the loop’s body is executed once. After the body is executed, i is incremented by one. This process continues until i is no longer less than arr.length. Now that you have a basic understanding of the for loop, take a look at how forEach can simplify the same program:
 
-Traditionally, when you wanted to work with all the items in an array, you’d loop over it. Though we’ll be covering loops later, it’s important to show you how it used to be done so that you understand why the forEach method is handy.
+var arr, total;
 
-The following is a program that uses the traditional method of looping over an array. The array contains a set of numbers, and on each pass, the instructions in the loop
-www.it-ebooks.info
-add the current number to the total. The program ends with an alert stating the total amount, which is 108:
+arr=[4,8,15,16,23,42];
+total = 0;
+
+arr.forEach(function(num) {
+  total = total + num;
+});
+
+alert("The total is: " + total);
+
+Notice how the loop itself is now a call to the array’s forEach method. We pass in an anonymous function (we’ll cover those in detail later) that receives a value as an argument and places it in the variable num. In other words, each time forEach steps over a number in the array, it passes it to this function as num. The rest is just math, and the total displayed in the alert ends up being identical, just as it did in the previous example.
+
+
+
+
 
 
 
