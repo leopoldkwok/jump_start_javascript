@@ -7,3 +7,6 @@ total = arr.reduce(function(previous, current) {
 	return previous + current;
 
 }); // total is 15;
+
+Here, reduce is running over the array just as the earlier methods did, but with a couple of big differences. For one, on the first pass, since there’s no a previous value to pass in, the first and second items of the array are passed in (the values 1 and 2 in this case). On subsequent passes, the previous value is what your code returns, and the current value is the next item in the array. What we’re doing here is taking the current item in the array and adding it to the previous value: the running total. The end result is that we add all the array’s values together for the total value of 15.
+reduceRight performs the same function as reduce but in reverse. In other words, it starts at the end of the array and moves towards the start.
