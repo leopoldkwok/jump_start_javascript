@@ -1,0 +1,91 @@
+Creating an Object
+As with arrays, there are a couple of ways to create objects, and, just like arrays, one is preferred over the other. So even though you can do this:
+
+var myObject = new Object();
+
+it is much better to do this:
+
+var myObject = {};
+
+The latter is simpler, safer, and therefore preferable.
+
+Array() can be overwritten for malicious purposes. So can Object(), which is why it's safer to use the object literal notation {} as it's unable to be overwritten. The object literal represents a new, empty object.
+
+Whereas in an array, values are simply added and accessed by index, objects use a key/value pair system. These two distinct ways of storing values make it fairly simple when choosing between arrays or objects for your data storage and retrieval needs. For example:
+
+var lotteryNumbers, profile;
+
+lotteryNumbers = [4,8,15,16,23,42];
+profile = {
+	firstName: "Hugo",
+	lastName: "Reyes",
+	flight: "Oceanic 815",
+	car: "Camaro"
+}
+
+Note how the lotteryNumbers array lends itself well to storing the sequence of lottery numbers, while the profile object is perfect for storing the key/value pairs of a person's (Hugo's) profile.
+
+After you’ve declared your object, however, you can still add key/value pairs to it in a couple of ways. When looking at the chapter on arrays, we touched on named indices, which can be used to create associative arrays, though objects are better suited to the task. Here’s an example of that:
+
+var obj = {};
+
+obj["firstName"] = "Hugo";
+obj["lastName"] = "Reyes";
+
+This is known as bracket notation. The alternative and more common syntax is dot notation. Here's an example:
+
+var obj = {};
+
+obj.firstName = "Hugo";
+obj.lastName = "Reyes";
+
+Dot notation is simpler than bracket notation; however, there are certain tasks that can only be done with bracket notation. For example, you can use a variable inside the brackets, which can't be done using dot notation. Bracket notation also supports strings containing spaces and other characters that are invalid in dot notation.
+
+Reading a value from an object can also be accomplished using bracket or dot notation:
+
+var obj = {};
+
+obj.firstName = "Hugo";
+obj.lastName = "Reyes";
+alert("Hello, my name is " + obj.firstName + " " + obj.lastName + ".");
+
+Unlike arrays, it’s not possible to read the contents of an object using a numeric index. The only type of index that can be used is a named one:
+
+var obj = {};
+
+obj.firstName = "Hugo";
+
+obj[0]; // returns undefined
+obj["firstName"]; // returns "Hugo"
+obj.firstName; // returns "Hugo"
+
+Nesting objects can be very helpful in organizing your data:
+
+var person;
+
+person = {
+	name: {
+		first: "Hugo",
+		last: "Reyes"
+	}
+};
+
+person.name.first; // returns "Hugo"
+person.name.last; // returns "Reyes"
+
+It’s also possible to assign objects:
+
+var person;
+
+person = {};
+person.name = {};
+person.name.first = "Hugo";
+person.name.last = "Reyes";
+
+
+
+
+
+
+
+
