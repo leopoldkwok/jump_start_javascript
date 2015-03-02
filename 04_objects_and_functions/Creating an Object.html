@@ -82,6 +82,64 @@ person.name = {};
 person.name.first = "Hugo";
 person.name.last = "Reyes";
 
+Namespacing through Nested Objects
+If you’re at all familiar with modern programming languages, you’ve heard of namespacing. Essentially, it’s a better way to organize code by putting it into nested buckets, or namespaces.
+
+Of course, in order for this namespace to exist, we must first nest the appropriate objects:
+
+var Project = {
+	Strings: {
+	Warnings: {}
+	}
+};
+
+
+Here we use the OR operator (||) to test whether or not Project is defined. If Project is already defined, it assigns its value to Project and nothing is changed. If it isn’t, JavaScript assigns what’s on the right-hand side of || to the Project variable
+
+Prototype Chain
+
+All objects have a prototype. So, what’s a prototype? It’s an object from which other objects inherit properties.
+
+Looping over an Object
+
+Looping over an object isn’t as simple as looping over an array. With an array, you simply increment an index value and use that to step through the array. With objects, there is no index value. Objects are collections of key/value pairs, so you need to step through them differently:
+
+var data, 
+	key;
+
+data = {
+	firstName: "James",
+	lastName: "Kirk",
+	occupation: "Captain"
+	};
+
+for (key in data) {
+	alert(key + " is " + data[key]);
+	} 
+
+In this example, we use a for ... in loop. We give it a variable (in this case, key) that will be used to hold the key as it steps through the object, and an object to step over (in this case, data). For each key/value pair inside data, the loop will assign the key to our variable named key. Inside the body of the loop, we can use the key to plug into our object to access its associated value: data[key]. That’s the equivalent of writing data["firstName"], and on a subsequent pass, data["lastName"], and so on.
+
+There is one catch, though. Since objects inherit from objects, the loop may start returning key/value pairs from further up the prototype chain. To prevent this, we need to add something to our loop:
+
+var data, 
+	key;
+
+data = {
+	firstName: "James",
+	lastName: "Kirk",
+	occupation: "Captain"
+};
+
+for (key in data) {
+	if(data.hasOwnProperty(key)) {
+	alert(key + " is " + data[key]);
+	}
+}
+
+The hasOwnProperty method makes sure that the key we’re using belongs to the object in question and doesn't originate further up the prototype chain. If it returns true, we can proceed with our operation. Otherwise, we ignore it.
+
+
+
 
 
 
