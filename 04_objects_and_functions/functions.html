@@ -9,6 +9,17 @@ By calling this simple function, you can cause an alert to appear with the messa
 
 sayHello();
 
-The reason for the parentheses is so that you can pass values as arguments into your function.Forexample,ratherthanourfunctionsaying"Hello, world!",wecould have it say something else:
+The reason for the parentheses is so that you can pass values as arguments into your function.Forexample,ratherthanourfunctionsaying"Hello, world!",we could have it say something else:
+
+function sayHello(msg) {
+	alert(msg);
+}
+
+Now when we call sayHello, we can pass in our own message:
+
+sayHello("Howdy, y'all!");
+
+Doing this calls the sayHello function and passes in "Howdy, y’all!" as the first argument. If you look at our sayHello function, we’ve specified a variable named msg as the first argument, so inside sayHello, msg will contain the value that was passedintothefunction;inthiscase,"Howdy, y’all!"Wethenhandthatvariable over to alert and voilà!
+
 
 

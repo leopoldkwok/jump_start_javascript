@@ -1,0 +1,11 @@
+Not only are functions containers for groups of operations, they also create a scope for variables. Variables exist either in the global scope (not declared within a function and available everywhere) or local scope (declared within a function and only available within it). No code outside the function can access a variable declared within it. Only code inside the function can access it. Nested function declarations that are declared at the same level or lower than the variable can also access it. So, for example:
+
+function hi () {
+	var hello = "hello"
+};
+
+hi();
+alert(hello);
+
+In this case, the variable named hello is scoped to the hi function. This means that the alert trying to access the hello variable from outside the hi function will be unableto.Instead,itwillreceiveaReferenceError: hello is not definederror. The reason why is because the variable hello was declared inside of hi and is therefore scoped to hi. It’s unavailable outside of the hi function.
+
