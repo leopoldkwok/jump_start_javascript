@@ -1,0 +1,19 @@
+That said, any function declared within another function automatically has access to variables declared within its parent function:
+
+
+function fullName() {
+	var firstName = "Hugo";
+
+	function alertFullName() {
+	var lastName ="Reyes";
+
+	alert("Full name: " + firstName + " " + lastName);
+	}
+	alertFullName();
+}
+
+fullName();
+
+The outer function, fullName, creates a scope inside which the variable firstName and function alertFullName are declared. Since they’re both declared inside fullName’s scope, alertFullName has access to firstName. So when fullName is executed, and it in turn executes alertFullName, alertFullName is able to access both its own lastName variable as well as its parent’s firstName to put together its alert text
+
+In fact, a function has access to all variables declared above it, no matter how deeply it’s nested. Let's illustrate this.
