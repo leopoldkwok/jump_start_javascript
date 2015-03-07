@@ -1,0 +1,32 @@
+Simple Function
+
+When the this keyword is used inside a simple function, it refers to the global variable scope, which is the window object. In this context, there’s no real need to use the this keyword as any variable in the global scope is accessible simply by using its name. In other words, if you declare a variable named foo globally, you can just refer to it as foo; no need to use this.foo. JavaScript is simply referring you to the global scope because there’s nothing else for it to point the this keyword to in this instance. If you’re running in strict mode, however, it will return un- defined. This is to prevent unintentional errors that are bound to happen in this context.
+
+In a Constructor
+
+When used in a constructor or function intended to be instantiated via the new keyword, this refers to the object that’s to be created. So if your constructor is a bank account:
+
+var Account, savings;
+
+Account = function(num) {
+	this.accountNumber = num;
+};
+
+savings = new Account(12345678);
+savings.accountNumber; // returns 12345678
+
+call and apply
+It’s possible to invoke a function using the call and apply methods that are provided. We’ll cover these in more detail shortly, but in both cases, the first argu- ment of these methods is an object you can pass in for the this keyword to refer to.
+
+bind
+Finally, ECMAScript 5 introduced a method called bind that creates a new function and permanently binds it to the object you pass it. That object gets referred to when calling this. We’ll also address this in more detail soon.
+
+
+
+
+
+
+
+
+
+
