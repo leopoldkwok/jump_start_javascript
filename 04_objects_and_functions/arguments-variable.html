@@ -1,0 +1,18 @@
+Sometimes, however, it’s not possible or ideal to predefine arguments. If we wanted to create a function that concatenated an arbitrary number of values and returned the result, how would we define the argument list? Well, JavaScript functions have a special array-like object called arguments that we can access from within the function to see exactly what was passed in:
+
+function concatenate() {
+	var i, str;
+
+	str = "";
+	for (i = 0; i < arguments.length; i+=1) {
+		str +=arguments[i];
+}
+	return str;
+}
+
+concatenate("Super", "cali", "fragilistic", "expiali", "docious");
+
+// returns Supercalifragilisticexpialidocious
+
+We have no way of knowing how many strings will be passed into our concatenate function, so we’re unable to predefine a list of arguments. Instead, we loop over the special arguments array and concatenate the values from there.
+Of course, this is a simple example of a function in action, and a useless one at that, since we could just call alert on our own without wrapping it in a function.
