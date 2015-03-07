@@ -1,0 +1,59 @@
+var checking, 
+	savings;
+
+// This is the definition of our Account class
+function Account(accountNumber) {
+	// This is the propert we'll be storing the account number in
+	this.accountNumber = accountNumber;
+
+	//This is the property we'll be tracking the account funds in.
+	this.funds = 0;
+
+	// This is the setter method we'll be using to add funds to the account.
+	this.deposit = function(amount) {
+		if(amount === Number(amount)) {
+			this.funds += amount;
+	}
+};
+
+	// this is the getter method that returns the account's balance
+	this.balance = function() {
+		return this.funds;
+	};
+}
+
+	// The "new Account()" constructor returns a new account
+	// Object complete with deposit and balance methods. We store the account object in a variable called checking/
+
+	checking = new Account("87654321");
+
+	// using the deposit method allows us to pass values to our account object.
+	checking.deposit(12.35);
+	checking.deposit(2.76);
+	checking.deposit(74.01);
+
+	// We now create a new account object and store that in a variable called savings. It also has deposit
+	// and balance methods, and is distinct from the "checking" account object.
+
+	savings = new Account("12345678");
+
+	savings.deposit(225.57);
+
+	// using the objects balance method, we can ask each of them to report their balances.
+	checking.balance(); //returns 89.12
+	savings.balance(); // returns 225.57
+
+Here, we have a function called Account from which two instances are created, checking and savings. By using the this keyword inside the function and hanging variables and functions off it, we’ve effectively created a class function used for instantiation. Now we can create instances of this function using the new keyword, which we do to create both the checking and savings objects in our example. In this case, the this keyword refers to the account object that was instantiated so that the deposit and balance methods―as well as the funds property―belong exclus- ively to the object instance. This way, we can have multiple coexisting instances of each with their own properties and methods.
+Note that although it's possible to directly read from and write to the funds property bytypingchecking.funds = 100oralert(checking.funds),it’ssometimesbetter to go through the getter and setter methods. In this case, we have a deposit method so as to ensure that the value passed in is actually a number. We have a balance method just to demonstrate how a getter would work. You can also access the checking.accountNumber property directly.
+Because JavaScript lets you use regular functions as classes, developers have adopted a naming convention that makes functions intended to be used as classes easier to identify. A function that’s intended to be used as a class has an uppercase first letter, while regular functions start with a lowercase first letter:
+
+// this is intended to be used as a class
+function Account() {
+}
+// this is not
+function jump() {
+}
+
+
+
+
