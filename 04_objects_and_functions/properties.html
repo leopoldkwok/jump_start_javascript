@@ -1,0 +1,32 @@
+Properties
+
+constructor
+If you’re handed an object that’s an instance of a function, you may want to know what that original function was. What’s more, you may wish to instantiate another object off that original function. With the constructor property, you can. It returns a reference to the original function in question, which allows you to create new instances with the original data:
+
+var foo, bar, baz;
+function Foo() {
+  this.ident = "foo";
+}
+foo = new Foo();
+foo.ident; // returns "foo"
+bar = new Foo();
+bar.ident;  // returns "foo"
+bar.ident = "bar";
+bar.ident;  // now returns "bar"
+baz = new bar.constructor();
+baz.ident; // returns "foo"
+
+First, we instantiate foo, which has an ident property value of "foo". Next, we instantiate bar, whose ident is also "foo" since it comes from the Foo class. How- ever, we change its ident value to "bar". We then instantiate baz by using bar’s constructor property. The property points us to the original Foo function, which gives our baz instance the same original ident value of "foo".
+
+length
+
+If you ever need to know how many arguments a function is expecting, you can check with the length property:
+
+function foo(bar, baz) {
+	
+}
+
+foo.length; // returns 2
+
+We get the value 2 returned when checking the length of foo because it’s expecting bar and baz as arguments.
+
