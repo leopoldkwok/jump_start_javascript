@@ -1,3 +1,46 @@
 We could write a function that receives a value and then returns another. In order to get something back, we need to make use of the return statement:
 
-function pigLatin(phrase {})
+function pigLatin(phrase) {
+	var words, 
+		pigged;
+
+	// Create an array with the words of the phrase
+	// we're given by splitting the phrase on the
+	// spaces between the words.
+	words = phrase.split(" ");
+
+	// Loop over the words array and translate each word to 
+	// Pig Latin. Return the trasnlated word so that it
+	// gets placed in a new array called "pigged."
+	pigged = words.map(function(word) {
+		var first, rest
+
+	// Grab the first letter of the word
+	first = word.substring(0,1);
+
+	//Grab the rest of the word
+	rest = word.substring(1);
+
+	//start the new word with the ending of the old word,
+	// and add the first letter of the old word as well as "ay" to the end of it. Return the result of the
+	// concatenation so that the map function can add it
+	// to the "pigged" array.
+	return rest + first + "ay"; 
+	});
+
+	// Rebuild the new Pig Latin phrase by rejoining the newly
+	// "pigged" words with spaces in between. Return the
+	// result so that anyone calling our pigLatin function
+	// can actually get the new Pig Latin version of their
+	// phrase.
+	return pigged.join(" ");
+}
+
+var pl = pigLatin("tonight you belong to me");
+
+ // returns "onighttay ouyay elongbay otay emay" into pl
+
+ Now, whenever we want to translate a phrase, we just need to pass it into our pigLatin function and we have our translation. Simple!
+
+ 
+
