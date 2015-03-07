@@ -34,3 +34,11 @@ function levelb() {
 
 	// Only the variable named "a" is available globally
 	console.log("global", a);
+
+	If you run this example, you’ll end up with the following output in your browser’s console:
+leveld a b c d
+levelc a b c
+levelb a b
+global a
+
+Nested function declarations can access variables de- clared above them. To avoid confusion, here we only drew arrows from the var a declaration to show how it becomes available to the child function declarations.

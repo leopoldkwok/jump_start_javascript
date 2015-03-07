@@ -1,0 +1,29 @@
+Now that we’ve covered how functions create variable scope, we'll address a phe- nomenon called hoisting. Because JavaScript is a very permissive language, it has to do a lot of work under the hood. We’ve already seen this with type coercion, when JavaScript attempts to convert variable types in order to make operations with conflicting types work. Hoisting is another "under the hood" action by JavaScript where it moves all variable declarations to the top of a function. That means that this:
+
+var name = "Emma";
+
+function nameHer() {
+	var name;
+	console.log(name); // output defined
+	name = "Audrey";
+}
+
+is the same as:
+
+var name = "Emma";
+
+function nameHer() {
+	console.log(name); // outputs underdefined
+	name = "Audrey";
+	var name;
+}
+
+which is the same as:
+
+var name = "Emma";
+
+function nameHer() {
+	console.log(name); // outputs undefined
+	var name = "Audrey";
+
+}
