@@ -1,0 +1,55 @@
+Declaration
+So far, we’ve seen one of three possible ways to create a function. Not only can we use the function statement (or declaration), we can also use the function operator (or expression) and the Function constructor. The first is a named function declar- ation, the second is a function expression, and the third is a constructor just like Array() and Object(). As with Array() and Object(), the Function() constructor returns a new Function object:
+
+// declaration
+
+function sayHello1() {
+	alert("Hello");
+}
+
+// expression
+var sayHello2 = function() {
+	alert("Hello");
+};
+
+//constructor (not recommended)
+var sayHello3 = new Function("alert('Hello')");
+
+Let’s start by taking a look at the first two, since they’re the most common. They have a couple of differences between them, the first being that a function declaration needs to have a name (in this case, sayHello1). If the function declaration has no name, it’s considered a function expression and, since it’s nameless, an anonymous function. Why does this matter? Well, the second distinction between function de- clarations and expressions is the way in which the JavaScript engine parses them. Function declarations are hoisted just as variables are, while only the variable de- claration of a function expression is hoisted. For example, this is possible with a function declaration:
+
+alert(hi());
+
+function hi() {
+	return "Hi!";
+}
+
+It’s possible because the entire hi function is hoisted above alert and is therefore available when alert uses it. Now let’s look at a similar example using a function expression,whichwillthrowaTypeError: undefined is not a functionerror:
+
+alert(hey());
+var hey = function () {
+  return "Hey!";
+};
+
+Thereasontheerrorsays"undefined is not a function"isbecauseatruntime, the hey variable declaration is hoisted above the alert but the assignment of the function remains below.
+The third way of writing a function is via the Function constructor. Of the three, it's the least recommended, as it requires your code to be passed in as a string, which is error-prone and difficult to write.
+
+If you’re going to use function declarations, always declare them at the top of your code’s scope (be it the global or local scope) so as to avoid hoisting, and to make it clear to the reader when the function is actually available for use. If you’re going to use function expressions, declare the variables you’ll be assigning to your func- tions at the top of your local scope for the same reason. Whatever you do, avoid writing code where you conditionally declare functions because you’ll run into in- consistent behavior across browsers, to say nothing of it being bad practice.
+
+However, when written as function expressions, both browsers will return "Hi!" because only the true branch of the if statement will ever be executed and therefore parsed:
+
+var hello;
+
+if(true) {
+	hello = function(){
+	alert("Hi!");
+}
+} else {
+	hello = function() {
+	alert("Hello!");
+	}
+}
+}
+
+
+
+

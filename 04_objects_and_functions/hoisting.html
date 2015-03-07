@@ -27,3 +27,6 @@ function nameHer() {
 	var name = "Audrey";
 
 }
+
+All three examples are the same because JavaScript reads the body of those functions, and moves all the variable declarations to the top of the function. Note that it only moves the declaration, not the assignment. Under the hood, all three functions end up looking like the first. That’s why the second and third examples output undefined rather that "Emma" as you’d expect. Even though it looks as though we’re using the name variable containing "Emma" before assigning "Audrey" to it, we’re actually de- claring a new and undefined name variable at the top of each function.
+
