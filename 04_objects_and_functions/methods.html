@@ -1,0 +1,16 @@
+apply
+
+Sometimes, you need to change what a function’s this keyword points to. The apply method makes it easy by letting you pass an object in as its first parameter that the this keyword will point to:
+
+var person, 
+	lastName;
+
+lastName = "Reyes";
+person = function() {
+	return this.lastName;
+};
+
+person(); // returns "Reyes"
+
+person.appl
+
