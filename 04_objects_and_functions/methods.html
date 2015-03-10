@@ -12,5 +12,63 @@ person = function() {
 
 person(); // returns "Reyes"
 
-person.appl
+person.apply({lastName: "Cooper"}); // returns "Cooper"
+
+In this example, our function refers originally to the globally declared lastName since in this case, this refers to window. But when we use apply, we pass in an object that the this keyword now points to, and hanging off it is a new lastName value. Therefore, when we use apply the return value is no longer "Reyes" but "Cooper".
+
+When calling apply, you can also pass the function an array of arguments:
+
+var tax;
+tax = function(price, provincial, federal) {
+  return price * provincial * federal;
+};
+tax.apply(null, [100, 1.05, 1.095]); // returns 114.975
+
+Here, we have a tax function that takes a price, multiplies it by the provincial and federal tax rates, and returns the value. Since we aren’t trying to change where the this keyword is pointing, we don’t bother passing in a value for the first argument. Instead, we skip it by passing in null. We then pass in an array containing values for the price, and the provincial and federal tax rates.
+
+call
+The call method is almost identical to apply except that instead of passing in an array of arguments, you only pass arguments, just as you would when calling the function itself (starting from the second argument):
+Note how the only difference between this implementation and the one for apply is how we pass the price, provincial, and federal values. With apply, they’re passed in an array, while here they’re passed in as individual arguments.
+bind
+With ECMAScript 5, it’s now possible to call the bind method off a function and pass in an object that will be referred to as this. The bind method creates a new function with the object bound to it:
+Objects and Functions 75
+var tax;
+tax = function(price, provincial, federal) {
+  return price * provincial * federal;
+};
+tax.call(null, 100, 1.05, 1.095); // returns 114.975
+
+var hugo, person, names;
+person = function () {
+  return this.lastName;
+};
+hugo = person.bind({lastName: "Reyes"});
+hugo(); // returns "Reyes"
+names = {
+  lastName: "Cooper",
+  hugo: hugo,
+  person: person
+};
+names.hugo(); // returns "Reyes"
+names.person(); // returns "Cooper"
+You’ll note how the person function points to this.lastName and that before we bind it, lastName refers to a variable in the global window space (which is undefined).
+
+So we go ahead and bind it to an object containing a lastName property with the value of "Reyes". Now, when we call the newly created hugo function, "Reyes" is returned to us from the object that was bound to it.
+Say if we were to place the original person function as well as the newly created hugo function inside an object containing a lastName property. We would see how this inside person dynamically points to the outer object, and therefore this.lastName now returns "Cooper" while the permanently bound hugo function continues to return "Reyes".
+
+
+The toString method returns a string representing the code of a function. So, for example, if we wrote a simple function:
+and then called toString on it:
+
+foo.toString();
+
+we’d have a response such as this:
+
+If, however, we called toString on a function that's a part of the JavaScript language:
+
+document.getElementById.toString()
+
+we’d receive a response that looked as follows:
+ "function getElementById() { [native code] }"
+That’s because the code responsible for getElementById is compiled, and cannot be output in human-readable form as JavaScript can.
 
