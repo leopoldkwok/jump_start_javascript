@@ -1,0 +1,2 @@
+A loop statement is used when we want to repeat some programming statements until a specified condition is reached. A typical example would be to iterate through a list and perform an oper- ation on each member of the list. A jump statement allows code to exit loops. One example is to loop through our to-do list and then break out of the loop upon reaching the first incomplete item.
+
