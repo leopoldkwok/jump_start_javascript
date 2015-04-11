@@ -1,0 +1,31 @@
+Jumps
+Broadly speaking, a jump statement is used to move to another part of the script. The jump statements in JavaScript are break, continue, labeled statements, and return. return is used for exiting functions, while the rest are used with loops. Let’s break this down in detail.
+
+break
+The break statement is used to exit from a loop. Suppose we wish to iterate through the task list and stop once we’ve hit the first completed a task. This could be accom- plished with a break statement:
+
+var tasks = [
+	{name: 'Buy milk', complete: false},
+	{name: 'Trash', complete:false},
+	{name: 'Pay bills', complete: true},
+	{name: 'Repairs', complete: false},
+	{name: 'Plumber', complete: true}
+	];
+
+	var firstComplete;
+
+	for (var i = 0; i < tasks.length; i++) {
+	if (tasks[i].complete) {
+		firstComplete = tasks[i];
+		break;
+	}
+}
+
+console.log(firstComplete);
+}
+}
+
+Note that break is only used for exiting from loops. Do not use it to try to exit from conditionals such as if. 
+
+
+]

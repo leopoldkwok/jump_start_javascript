@@ -1,0 +1,26 @@
+var tasks = [
+	{name: 'Buy milk', complete: false},
+	{name: 'Trash', complete:false},
+	{name: 'Pay bills', complete: true},
+	{name: 'Repairs', complete: false},
+	{name: 'Plumber', complete: true}
+	];
+
+	var firstComplete;
+
+for (var i = 0; i < tasks.length; i++) {
+	if(!tasks[i].complete) {
+	continue;
+	}
+
+	console.log(i, tasks[i].name);
+}
+
+This code prints the tasks that are complete, yielding this:
+
+2 'Pay bills'
+4 'Plumber'
+
+We choose to print the value of the counter i to demonstrate the effect of using continue on counter incrementation. Notice how it causes the loop to continue, as well as running the end condition to increment the counter. 
+
+
