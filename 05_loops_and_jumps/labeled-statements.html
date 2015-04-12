@@ -1,0 +1,19 @@
+var i, j;
+
+loop1:
+for (i = 0; i<3; i++) {
+	//The first for statement is labeled "loop1"
+loop2:
+for (j=0; j <3; j++) {
+	// The second for statement is labeled "loop2"
+	if (i == 1 && j ==1 ) {
+	continue loop1;
+
+} else {
+	console.log("i = " + i + ", j = " + j);
+		}
+	}
+}
+
+The key to understanding this code is analyzing continue loop1;. When i and j are both equal to 1, the continue is executed, at which point the code jumps back to the labelled loop1, the counter i is incremented, and execution resumes.
+
